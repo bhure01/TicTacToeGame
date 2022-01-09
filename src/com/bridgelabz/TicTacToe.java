@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class TicTacToe {
 
-    private static char[] boardArray = new char[10];
+    private static char[] boardArray = new char[10];      //playing board
     private static char player1Choice;
     private static char player2Choice;
 
@@ -47,6 +47,18 @@ public class TicTacToe {
             boardArray[position] = 'O';
         } else {
             boardArray[position] = 'X';
+        }
+    }
+
+    private static boolean checkFreePosition(int enteredPosition) {
+        if(enteredPosition < 1 || enteredPosition > 9) {
+            System.out.println("Please Enter the Position between 1 to 9 only.");
+            return false;
+        } else if(boardArray[enteredPosition] != '_') {
+            System.out.println("Entered Location Contain Symbol. Please Enter Another Location.");
+            return false;
+        } else {
+            return true;
         }
     }
 
