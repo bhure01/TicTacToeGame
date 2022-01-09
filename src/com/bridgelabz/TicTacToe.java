@@ -40,9 +40,23 @@ public class TicTacToe {
         System.out.println(" ----------- ");
     }
 
+    private static void getUserInput(int i) {
+        System.out.println("Player " + i + " Enter the Position for Your Symbol :");
+        int position = scan.nextInt();
+        if (i % 2 == 0) {
+            boardArray[position] = 'O';
+        } else {
+            boardArray[position] = 'X';
+        }
+    }
+
     public static void main(String[] args) {
         initiateBoard();
         playerChoice();
         showBoard();
+        for(int i=1;i<=10;i++) {
+            getUserInput((i%2)+1);
+            showBoard();
+        }
     }
 }
